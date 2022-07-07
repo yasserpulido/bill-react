@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navi from "./components/shared/Navi/Navi";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Welcome from "./pages/welcome/Welcome";
+import BillList from "./pages/bill-list/BillList";
+import BillDetail from "./pages/bill-detail/BillDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <BrowserRouter>
+        <Navi />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/bill" element={<Welcome />} />
+          <Route path="/bill/list" element={<BillList />} />
+          <Route path="/bill/detail" element={<BillDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 
